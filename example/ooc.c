@@ -7,7 +7,7 @@ class(Object, NullClass,
     int b;
 )
 
-clsmddd(Object, int, add, noargs)
+method_tmpl(Object, int, add, noargs)
 {
     return self->a + self->b;
 }
@@ -17,7 +17,7 @@ class(AdvObject, Object,
     int adv_a;
 )
 
-clsmddd(AdvObject, int, mul, noargs) {
+method_tmpl(AdvObject, int, mul, noargs) {
     return super(self).a * self->adv_a + super(self).b * self->adv_a;
 }
 
@@ -29,7 +29,7 @@ int main()
     o.b = 100;
     // object name
     Object *obj = &o;
-    int p = clsmdc(obj, Object, add, nulargs);
+    int p = method_call(obj, Object, add, nulargs);
     printf("%d \n", p);
 
     // allocate
@@ -39,7 +39,7 @@ int main()
     adv_o.super.b = 4;
     // object name
     AdvObject *adv_obj = &adv_o;
-    p = clsmdc(adv_obj, AdvObject, mul, nulargs);
+    p = method_call(adv_obj, AdvObject, mul, nulargs);
     printf("%d \n", p);
 
     return 0;
