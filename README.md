@@ -1,3 +1,3 @@
 # SICMA 
 
-simple c macro, make you free from define c macro
+SImple C MAcro, use c macro to let programming of c easier (or harder)
