@@ -1,7 +1,7 @@
 CC ?= gcc
 
 # PWD = $(shell pwd)
-INCDIR = -I..
+INCDIR = -I../src
 
 EXDIR = example
 
