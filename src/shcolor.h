@@ -1,3 +1,6 @@
+#ifndef SICMA_TEXT_COLOR_H
+#define SICMA_TEXT_COLOR_H
+
 // text pattern
 #define RESET       "\033[00m"
 #define NORMAL      "\033[00;97m"
@@ -24,3 +27,5 @@
 #define LMAGENTA    "\033[95m"
 #define LCYAN       "\033[96m"
 #define WHITE       "\033[97m"
+
+#endif
