@@ -4,10 +4,10 @@
 #define noargs void *_noargs
 #define nulargs 0
 
-typedef struct __NullClass {} NullClass;
+typedef struct NullClass {} NullClass;
 
 #define class(class_name, cls_inherit,...) \
-    typedef struct __##class_name { \
+    typedef struct class_name { \
         cls_inherit super; \
         __VA_ARGS__ \
     } class_name;
