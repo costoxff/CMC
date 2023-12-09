@@ -1,46 +1,54 @@
-#include "psdooc.h"
+#include "../src/psdooc.h"
 #include <stdio.h>
 
 // class Object
 class(Object, NullClass,
-    int a;
-    int b;
+    int ref;
 )
 
-method_tmpl(Object, int, add, noargs)
+method_tmpl(Object, 
+            Object *, ref, noargs)
 {
-    return self->a + self->b;
+    return NULL;
 }
 
-// class AdvObject
-class(AdvObject, Object,
-    int adv_a;
+method_tmpl(Object,
+            Object *, unref, noargs)
+{
+    return NULL;
+}
+
+// class Vehicle
+class(Vehicle, Object,
 )
 
-method_tmpl(AdvObject, int, mul, noargs) {
-    return super(self).a * self->adv_a + super(self).b * self->adv_a;
+method_tmpl(Vehicle,
+            void, start, noargs)
+{
+    if (self) printf("%x derived from %x\n", self, super(self));
 }
 
+// class Car
+class(Car, Vehicle,
+    int useless_a;
+)
+
+// class Truck
+class(Truck, Vehicle,
+    int useless_a;
+    int useless_b;
+)
+
+// main 
 int main()
 {
-    // allocate
-    Object o;
-    o.a = 10;
-    o.b = 100;
-    // object name
-    Object *obj = &o;
-    int p = method_call(obj, Object, add, nulargs);
-    printf("%d \n", p);
+    Car car;
 
-    // allocate
-    AdvObject adv_o;
-    adv_o.adv_a = 10;
-    adv_o.super.a = 2;
-    adv_o.super.b = 4;
-    // object name
-    AdvObject *adv_obj = &adv_o;
-    p = method_call(adv_obj, AdvObject, mul, nulargs);
-    printf("%d \n", p);
+    Truck truck;
+
+    method_call((Vehicle *) &car, Vehicle, start, nulargs);
+
+    method_call((Vehicle *) &truck, Vehicle, start, nulargs);
 
     return 0;
 }
