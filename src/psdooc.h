@@ -18,8 +18,9 @@ typedef struct NullClass {} NullClass;
 #define method_tmpl(class_name, ret_type, method_name, ...) \
     ret_type class_name##_##method_name(class_name* self, __VA_ARGS__)
 
-// class method called
+// calling class method
 #define method_call(obj, class_name, method_name, ...) \
-    class_name##_##method_name(obj, __VA_ARGS__)
+    class_name##_##method_name((class_name *) obj, __VA_ARGS__)
+
 
 #endif

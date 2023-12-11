@@ -46,9 +46,9 @@ int main()
 
     Truck truck;
 
-    method_call((Vehicle *) &car, Vehicle, start, nulargs);
+    method_call(&car, Vehicle, start, nulargs);
 
-    method_call((Vehicle *) &truck, Vehicle, start, nulargs);
+    method_call(&truck, Vehicle, start, nulargs);
 
     return 0;
 }
