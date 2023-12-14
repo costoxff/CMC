@@ -14,8 +14,8 @@ typedef struct NullClass {} NullClass;
 #define class_fdecl(class_name) \
     typedef struct class_name class_name
 
-/* class
- * please use it with below form
+/* class macro
+ * Use it with form below
  *
  * class(ClassFoo, ParentFoo,
  *     int member_a;
@@ -33,13 +33,13 @@ typedef struct NullClass {} NullClass;
 #define super(self) (self->super)
 
 /* method template for function declare and define
- * please use it with below form
+ * Use it with form below
  *
- * for declare:
+ * For declare:
  * method_tmpl(ClassFoo,
  *             void, foo, int a, int *);
  *
- * for define:
+ * For define:
  * method_tmpl(ClassFoo,
  *             void, foo, int a, int *)
  * {
