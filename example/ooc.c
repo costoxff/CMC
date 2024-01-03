@@ -1,4 +1,4 @@
-#include "../src/psdooc.h"
+#include "psdooc.h"
 #include <stdio.h>
 
 // class Object
@@ -46,9 +46,9 @@ int main()
 
     Truck truck;
 
-    method_call(&car, Vehicle, start, nulargs);
+    cm(&car, Vehicle, start, nulargs);
 
-    method_call(&truck, Vehicle, start, nulargs);
+    cm(&truck, Vehicle, start, nulargs);
 
     return 0;
 }

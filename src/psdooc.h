@@ -6,23 +6,15 @@
 
 typedef struct NullClass {} NullClass;
 
-/* class forward declaration
- * forward declaration is useful when typedef a function pointer
- * who's parameter type is the class itself. And can also reduce 
- * the compiling time.
-*/
-#define class_fdecl(class_name) \
-    typedef struct class_name class_name
-
 /* class macro
  * Use it with form below
  *
  * class(ClassFoo, ParentFoo,
  *     int member_a;
  *     int member_b;
- *     void (*func_ptr)();
  *     etc.
  * )
+ * using function pointer is strongly not recommand.
 */
 #define class(class_name, cls_inherit,...) \
     typedef struct class_name { \
@@ -52,7 +44,7 @@ typedef struct NullClass {} NullClass;
 /*
  * calling class method
 */
-#define method_call(obj, class_name, method_name, ...) \
+#define cm(obj, class_name, method_name, ...) \
     class_name##_##method_name((class_name *) obj, __VA_ARGS__)
 
 /* For another strategy, considered using function pointer in struct like:
@@ -74,10 +66,13 @@ typedef struct NullClass {} NullClass;
  * }
 */
 
+// ====== psdooc version 2 ======
 #define class_declare(struct_name) typedef struct struct_name struct_name
 #define class_define(struct_name) struct struct_name
 
-#define callmd(obj, func_name, ...) obj->func_name(obj, __VA_ARGS__)
+/* calling object's method
+*/
+#define cobjm(obj, func_name, ...) obj->func_name(obj, __VA_ARGS__)
 
 
 #define func_tmpl(ret_type, func_name, ...) \
