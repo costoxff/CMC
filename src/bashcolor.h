@@ -1,3 +1,6 @@
+#ifndef SICMA_ESCAPE_CODE_H
+#define SICMA_ESCAPE_CODE_H
+
 #define _STRFCT(x) #x
 #define XSTR(x) _STRFCT(x)
 
@@ -79,3 +82,5 @@ enum text_color {
 #define bg_color(color) color + 10;
 
 #define itoa(strbuf, nm) sprintf(strbuf, "%d", nm);
+
+#endif
