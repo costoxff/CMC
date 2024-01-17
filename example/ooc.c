@@ -1,5 +1,6 @@
 #include "psdooc.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 // class Object
 class(Object, NullClass,
@@ -42,13 +43,15 @@ class(Truck, Vehicle,
 // main 
 int main()
 {
-    Car car;
+    Car *car = New(Car);
 
-    Truck truck;
+    Truck *truck = New(Truck);
 
-    cm(&car, Vehicle, start, nulargs);
+    cm(car, Vehicle, start, nulargs);
+    cm(truck, Vehicle, start, nulargs);
 
-    cm(&truck, Vehicle, start, nulargs);
+    free(car);
+    free(truck);
 
     return 0;
 }

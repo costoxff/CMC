@@ -1,6 +1,9 @@
 #ifndef SICMA_PSEUDO_OOC_H
 #define SICMA_PSEUDO_OOC_H
 
+
+// ====== psdooc type 1 ======
+
 #define noargs void *_noargs
 #define nulargs 0
 
@@ -15,7 +18,7 @@ typedef struct NullClass {} NullClass;
  *     etc.
  * )
  * using function pointer is strongly not recommand.
-*/
+ */
 #define class(class_name, cls_inherit,...) \
     typedef struct class_name { \
         cls_inherit super; \
@@ -37,13 +40,13 @@ typedef struct NullClass {} NullClass;
  * {
  *     do something   
  * }
-*/ 
+ */ 
 #define method_tmpl(class_name, ret_type, method_name, ...) \
     ret_type class_name##_##method_name(class_name* self, __VA_ARGS__)
 
 /*
  * calling class method
-*/
+ */
 #define cm(obj, class_name, method_name, ...) \
     class_name##_##method_name((class_name *) obj, __VA_ARGS__)
 
@@ -64,9 +67,15 @@ typedef struct NullClass {} NullClass;
  *     int member_b;
  *     obj_func_t self_operate;
  * }
-*/
+ */
 
-// ====== psdooc version 2 ======
+#define _PSD_OOC_ALLOC malloc
+#define New(class) (class*) _PSD_OOC_ALLOC(sizeof(class))
+#define _PSD_OOC_DEALLOC
+
+
+// ====== psdooc type 2 ======
+
 #define class_declare(struct_name) typedef struct struct_name struct_name
 #define class_define(struct_name) struct struct_name
 
