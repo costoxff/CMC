@@ -1,3 +1,3 @@
-# SICMA 
+# CMC 
 
-SImple C MAcro, use c macro to let programming of c easier (or harder)
+C Macro Collection, use c macro to let programming of c easier (or harder)
