@@ -6,6 +6,7 @@
 // a macro to operate literal in macro
 
 // repeat
+// https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms
 #define REP0(X)
 #define REP1(X) X
 #define REP2(X) REP1(X) X
