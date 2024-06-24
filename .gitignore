@@ -1,4 +1,4 @@
 # directory example white list
-./example/*
-!./example/Makefile
-!./example/*.c
+/example/*
+!/example/Makefile
+!/example/*.c
