@@ -1,20 +1,18 @@
-#ifndef SICMA_LOOP_H
-#define SICMA_LOOP_H
+#ifndef LOOP_H
+#define LOOP_H
 
-#include "core.h"
+// overflow issue
+#define for_args(i, begin, end, step) \
+	for ((i) = (begin); (i) != (end); (i) += (step))
 
-#define iter(i, begin, end, step) \
-	for ((i) = (begin); (i) < (end); (i) += (step))
-#define riter(i, rbegin, rend, step) \
-	for ((i) = (rbegin); (i) >= (rend); (i) -= (step)) // reverse
+#define for_each(i, size) for_args(i, 0, size, 1)
+#define for_each_rev(i, size) for_args(i, size - 1, -1, -1) // reverse
 
-#define foreach(i, end) iter(i, 0, end, 1)
-#define rforeach(i, begin) riter(i, begin, 0, 1) // reverse
+#define _ARRAY_SIZE(arr) (sizeof(arr)/sizeof((arr)[0])) // no type checking
+#define for_each_arr(ptr, arr) \
+	for (ptr = arr; ptr != &arr[_ARRAY_SIZE(arr)]; ptr++)
 
-#define foreach_arr(val, arr, len) \
-	int UNIQUE_NAME; for (val = arr[0], UNIQUE_NAME = 0; UNIQUE_NAME < len; val = arr[++UNIQUE_NAME])
-
-#define rforeach_arr(val, arr, len) \
-	int UNIQUE_NAME; for (val = arr[len-1], UNIQUE_NAME = len - 1; UNIQUE_NAME >= 0; val = arr[--UNIQUE_NAME])
+#define for_each_arr_rev(ptr, arr) \
+	for (ptr = &arr[_ARRAY_SIZE(arr)-1]; ptr != arr - 1; ptr--)
 
 #endif
