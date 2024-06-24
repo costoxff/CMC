@@ -1,7 +1,7 @@
 #ifndef SICMA_LOOP_H
 #define SICMA_LOOP_H
 
-#include "misc.h"
+#include "core.h"
 
 #define iter(i, begin, end, step) \
 	for ((i) = (begin); (i) < (end); (i) += (step))
