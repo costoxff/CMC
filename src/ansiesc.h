@@ -1,5 +1,5 @@
-#ifndef ANSI_ESCAPE_H
-#define ANSI_ESCAPE_H
+#ifndef CMC_ANSI_ESCAPE_H
+#define CMC_ANSI_ESCAPE_H
 
 #define _STRFCT(x) #x
 #define XSTR(x) _STRFCT(x)

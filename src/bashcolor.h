@@ -1,5 +1,5 @@
-#ifndef SICMA_ESCAPE_CODE_H
-#define SICMA_ESCAPE_CODE_H
+#ifndef CMC_ESCAPE_CODE_H
+#define CMC_ESCAPE_CODE_H
 
 #define _STRFCT(x) #x
 #define XSTR(x) _STRFCT(x)

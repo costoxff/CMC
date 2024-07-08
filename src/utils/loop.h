@@ -1,5 +1,5 @@
-#ifndef LOOP_H
-#define LOOP_H
+#ifndef CMC_UTILS_LOOP_H
+#define CMC_UTILS_LOOP_H
 
 // overflow issue
 #define for_args(i, begin, end, step) \

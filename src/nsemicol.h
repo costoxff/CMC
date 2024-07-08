@@ -1,5 +1,5 @@
-#ifndef SICMA_NO_SEMICOLON_H
-#define SICMA_NO_SEMICOLON_H
+#ifndef CMC_NO_SEMICOLON_H
+#define CMC_NO_SEMICOLON_H
 
 #define IF      if (
 #define THEN    ) {

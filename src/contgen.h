@@ -1,5 +1,7 @@
-#ifndef CONTAINER_GEN_H
-#define CONTAINER_GEN_H
+#ifndef CMC_CONTAINER_GEN_H
+#define CMC_CONTAINER_GEN_H
+
+// TODO: rewrite stack and queue
 
 /*
  * Stack

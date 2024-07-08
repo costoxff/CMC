@@ -1,5 +1,5 @@
-#ifndef SICMA_MISCELL_H
-#define SICMA_MISCELL_H
+#ifndef CMC_UTILS_MISCELL_H
+#define CMC_UTILS_MISCELL_H
 
 /* C11(ISO/IEC 9899:201x) §6.3.2.3 Pointers Section 3
  * An integer constant expression with the value 0, or such an expression cast 

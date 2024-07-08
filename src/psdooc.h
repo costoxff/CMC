@@ -1,5 +1,5 @@
-#ifndef SICMA_PSEUDO_OOC_H
-#define SICMA_PSEUDO_OOC_H
+#ifndef CMC_PSEUDO_OOC_H
+#define CMC_PSEUDO_OOC_H
 
 
 // ====== psdooc type 1 ======

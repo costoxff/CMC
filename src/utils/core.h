@@ -1,5 +1,5 @@
-#ifndef CMC_CORE_H
-#define CMC_CORE_H
+#ifndef CMC_UTILS_CORE_H
+#define CMC_UTILS_CORE_H
 
 // a macro to name a macro
 
