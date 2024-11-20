@@ -6,7 +6,7 @@
  * to type void *, is called a null pointer constant
 */
 #define IS_NULL(ptr) ((ptr) == NULL)
-#define F_AND_N(ptr) free(ptr); ptr = NULL 
+#define SAFE_FREE(ptr) free(ptr); (ptr) = NULL 
 
 // function generator
 #define SWAP_FUNC_GEN(type) \
