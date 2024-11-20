@@ -1,42 +1,74 @@
 #ifndef CMC_CONTAINER_GEN_H
 #define CMC_CONTAINER_GEN_H
 
-// TODO: rewrite stack and queue
+/* Stack Code Generation
+ */
+#define STACK_STRUCT_GEN(type) \
+typedef struct _stack_##type { \
+    type *arr; \
+    size_t cap; \
+    size_t top; /* stack index */ \
+} stack_##type
 
-/*
- * Stack
-*/
-#define STACK_STRUCT_GEN(type, name, cap) \
-    typedef struct name{ \
-        type arr[cap]; \
-        int size; \
-        int si; /* stack index */ \
-    } name
+#define STACK_INIT { NULL, 0, 0 }
 
-#define STACK_INIT_FUNC_GEN(func_name, )
+#define STACK_FUNC_GEN_ALL(type) \
+    STACK_FUNC_GEN_INIT(type) \
+    STACK_FUNC_GEN_IS_EMPTY(type) \
+    STACK_FUNC_GEN_POP(type) \
+    STACK_FUNC_GEN_PUSH(type)
 
-#define stack_push(s, item) s.arr[++(s.si)] = item
+#define STACK_FUNC_GEN_INIT(type) \
+int stack_init_##type(stack_##type *s) { \
+    s = malloc(sizeof(stack_##type)); \
+    if (s == NULL) return -1; }
 
-#define stack_pop(s) s.arr[(s.si)--]
+#define STACK_FUNC_GEN_IS_EMPTY(type) \
+int stack_is_empty_##type(stack_##type s) { return s.top == 0; } \
 
-#define stack_empty(s) s.si < 0
+#define STACK_FUNC_GEN_IS_FULL(type) \
+int stack_is_full_##type(stack_##type s) { return s.top == cap; } \
 
-/*
- * Queue
-*/
-#define queue(type ,size) \
-    struct _qeueu##__LINE__ { \
-        type arr[size]; \
-        int ppi; /* pop index */ \
-        int pi; /* push index */ \
-    }
+#define STACK_FUNC_GEN_POP(type) \
+type stack_pop_##type(stack_##type s) { \
+    if (!stack_is_empty_##type(s)) return stk.arr[--s.top]; } \
 
-#define QUEUE_INIT { {}, -1 , -1 }
+#define STACK_FUNC_GEN_PUSH(type) \
+void stack_push_##type(stack_##type s, type obj) { \
+    if (!stack_is_full_##type(s)) { s.arr[s.top++] = obj; } }
 
-#define queue_push(q, item) q.arr[++(q.pi)] = item
+/* Queue Code Generation
+ */
+#define QUEUE_STRUCT_GEN(type) \
+    struct _qeueu##type { \
+        type *arr; \
+        size_t cap; \
+        size_t size; \
+        size_t front; /* pop index */ \
+        size_t rear; /* push index */ \
+    } queue_##type
 
-#define queue_pop(q) q.arr[++(q.ppi)]
+#define QUEUE_INIT { NULL, 0, 0, 0, 0 }
 
-#define queue_empty(q) q.ppi == q.pi
+#define QUEUE_FUNC_GEN_IS_EMPTY(type) \
+int queue_is_empty_##type(queue_##type q) { \
+    return q.size == 0; }
+
+#define QUEUE_FUNC_GEN_IS_FULL(type) \
+int queue_is_full_##type(queue_##type q) { \
+    return q.size == cap; }
+
+#define QUEUE_FUNC_GEN_POP(type) \
+type queue_pop_##type(queue_##type q) { \
+    if (!queue_empty_##type(q)) { \
+        if (q.front >= cap) { q.front = 0; } \
+        q.size--; \
+        return q.arr[q.front++]; } }
+
+#define QUEUE_FUNC_GEN_PUSH(type) \
+void queue_push_##type(queue_##type q, type obj) { \
+    if (q.rear >= cap) { q.rear = 0; } \
+    q.size++; \
+    q.arr[q.rear++] = obj; }
 
 #endif
