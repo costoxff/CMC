@@ -1,6 +1,9 @@
+#ifndef CMC_LOGICAL_GATE_H
+#define CMC_LOGICAL_GATE_H
+
 #define AND(a, b) ((a) && (b))
 #define OR(a, b) ((a) || (b))
-#define NOT(a) (~(b))
+#define NOT(a) (~(a))
 #define XOR(a, b) ((a) ^ (b))
 
 #define NAND(a, b) NOT(AND(a, b))
@@ -20,3 +23,5 @@ typedef struct __byte {
 
 #define bytev(bt, ll) ((b)t.onebyte)[ll]
 #define bytevptr(btp, ll) ((btp)->onebyte)[ll]
+
+#endif
