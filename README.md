@@ -1,3 +1,3 @@
 # CMC 
 
-C Macro Collection, use c macro to let programming of c easier (or harder)
+C Macro Collection, using macro to make C programming easier (or harder)
