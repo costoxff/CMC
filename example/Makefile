@@ -1,3 +1,5 @@
+include ../config.mk
+
 CC ?= gcc
 
 # PWD = $(shell pwd)

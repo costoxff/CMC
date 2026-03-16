@@ -8,3 +8,4 @@ example:
 
 clean:
 	$(MAKE) -C example clean
+.PHONY: clean
