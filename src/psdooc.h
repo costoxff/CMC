@@ -47,7 +47,7 @@ typedef struct NullClass {} NullClass;
 /*
  * calling class method
  */
-#define cm(obj, class_name, method_name, ...) \
+#define cmc_call_method(obj, class_name, method_name, ...) \
     class_name##_##method_name((class_name *) obj, __VA_ARGS__)
 
 /* For another strategy, considered using function pointer in struct like:
@@ -70,8 +70,10 @@ typedef struct NullClass {} NullClass;
  */
 
 #define _PSD_OOC_ALLOC malloc
-#define New(class) (class*) _PSD_OOC_ALLOC(sizeof(class))
-#define _PSD_OOC_DEALLOC
+#define cmc_new(class) (class*) _PSD_OOC_ALLOC(sizeof(class))
+
+#define _PSD_OOC_DEALLOC free
+#define cmc_delete(obj) _PSD_OOC_DEALLOC(obj)
 
 
 // ====== psdooc type 2 ======
