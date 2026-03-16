@@ -8,13 +8,13 @@ class(Object, NullClass,
     int ref;
 )
 
-method_tmpl(Object, 
+cmc_method_tmpl(Object, 
             Object *, ref, noargs)
 {
     return NULL;
 }
 
-method_tmpl(Object,
+cmc_method_tmpl(Object,
             Object *, unref, noargs)
 {
     return NULL;
@@ -24,7 +24,7 @@ method_tmpl(Object,
 class(Vehicle, Object,
 )
 
-method_tmpl(Vehicle,
+cmc_method_tmpl(Vehicle,
             void, start, noargs)
 {
     if (self) printf("%x derived from %x\n", self, super(self));

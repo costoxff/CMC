@@ -19,9 +19,9 @@ typedef struct NullClass {} NullClass;
  * )
  * using function pointer is strongly not recommand.
  */
-#define class(class_name, cls_inherit,...) \
+#define class(class_name, class_inherit,...) \
     typedef struct class_name { \
-        cls_inherit super; \
+        class_inherit super; \
         __VA_ARGS__ \
     } class_name;
 
@@ -41,7 +41,7 @@ typedef struct NullClass {} NullClass;
  *     do something   
  * }
  */ 
-#define method_tmpl(class_name, ret_type, method_name, ...) \
+#define cmc_method_tmpl(class_name, ret_type, method_name, ...) \
     ret_type class_name##_##method_name(class_name* self, __VA_ARGS__)
 
 /*
